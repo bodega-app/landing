@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
   Ethereal by HTML5 UP
   html5up.net | @ajlkn
@@ -7,7 +7,7 @@
 <html>
 <head>
   <title>BODEGA: Streamline Your Shopping Experience</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     body {
@@ -20,13 +20,13 @@
       justify-content: space-between;
       min-height: 100vh;
       padding: 0 10%;
+      overflow: hidden;
+      position: relative; /* Needed for absolute positioning */
     }
 
     a {
       text-decoration: none;
     }
-
-
 
     .navbar {
       display: flex;
@@ -36,50 +36,56 @@
       top: 0;
       left: 0;
       right: 0;
-      background: #ffffff;
-      padding: 10px 5%;
+      /* background: #ffffff; */
+      padding: 30px;
       box-sizing: border-box;
-      z-index: 2;
+      z-index: 10;
     }
 
     .navbar .logo {
-      color: #FF69B4;
-      font-size: 2em;
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
     }
 
     .header {
-      text-align: left;
-      padding-left: 50px;
-      padding-right: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 15px;
-      min-height: calc(100vh - 72px); /* Adjust for navbar height */
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+    margin-top: 20vh; /* Adjust this value as needed */
+    z-index: 3; /* Ensure header is on top of video */
+  }
+
+    .header-subtitle {
+      font-weight: lighter;
+      font-size: 4.5rem;
+      color: white;
     }
 
     .header h1 {
       font-size: 3em;
       text-transform: uppercase;
-			margin: 0;
+      margin: 0;
     }
 
     .header h1 span {
-      color: #FF69B4;
+      color: #ff69b4;
     }
 
     .header h2 {
-      color: #000000;
-			margin-bottom: .5rem;
-			margin-top: 0rem;
+      color: white;
+      margin-bottom: 0.5rem;
+      margin-top: 0rem;
     }
 
-
-
-		.get-updates {
-			margin-top: 1rem;
-		}
-
+    .get-updates {
+      margin-top: 1rem;
+    }
 
     .content h2 span,
     .content p span,
@@ -95,6 +101,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      z-index: 2; /* Ensure header is on top of video */
     }
 
     .content h2 {
@@ -122,37 +129,57 @@
     }
 
     .btn:hover {
-      background-color: #FF69B4;
+      background-color: #ff69b4;
       color: #ffffff;
     }
 
-		.top-btn {
+    .top-btn {
       display: inline-block;
       font-size: 1.2em;
       padding: 10px 20px;
-      color: #ffffff;
-      background-color: #000000;
-      border: none;
-      border-radius: 25px;
+      color: white;
+      /* background-color: white; */
+      border: white solid 1px;
       transition: all 0.3s ease 0s;
       cursor: pointer;
       outline: none;
     }
 
     .top-btn:hover {
-      background-color: #FF69B4;
-      color: #ffffff;
+      background-color: white;
+      color: black;
     }
 
     .footer {
-      text-align: center;
-      padding: 20px;
-      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 10px;
+      position: fixed;
+      box-sizing: border-box;
       width: 100%;
-      background: #ffffff;
+      /* background: #ffffff; */
+      font-size: 0.7rem;
+      z-index: 10; /* Ensure footer is on top of video */
     }
 
-    input[type=email] {
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cover entire viewport */
+      /* opacity: 0.5; */
+      z-index: 1; /* Place video behind content */
+    }
+
+    input[type="email"] {
       padding: 10px;
       font-size: 1em;
       border: 1px solid #000000;
@@ -179,13 +206,22 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      z-index: 9;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .header-image {
       flex-shrink: 0;
-      margin-left: 20px; /* Adjust the margin as needed */
-      max-width: 30%; /* Adjust the width as needed */
+      margin-top: 50px; /* Adjust the margin as needed */
+      max-height: 70vh; /* Adjust the width as needed */
     }
 
     .scroll-arrow {
@@ -199,133 +235,166 @@
       z-index: 3;
     }
 
-		.content {
-  margin: 20px;
-  text-align: justify;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-	}
+    .content {
+      margin: 20px;
+      text-align: justify;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-	.content-container {
-		margin-top: 2rem;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1200px; /* Adjust the max-width as needed */
-	}
+    .content-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px; /* Adjust the max-width as needed */
+    }
 
-	.content-image {
-		flex-shrink: 0;
-		margin-right: 20px; /* Adjust the margin as needed */
-	}
+    .content-image {
+      flex-shrink: 0;
+      margin-right: 20px; /* Adjust the margin as needed */
+    }
 
-	.content-image img {
-		max-width: 20vw; /* Adjust the width as needed */
-	}
+    .content-image img {
+      max-width: 20vw; /* Adjust the width as needed */
+    }
 
-	.content-text {
-		flex-grow: 1;
-	}
+    .content-text {
+      flex-grow: 1;
+    }
 
-	    /* Existing CSS */
+    .footer p {
+      color: white;
+    }
+
+    .footer a:visited {
+      color: white; /* Set the color you want for visited links */
+    }
+
+    .iphone-image-container {
+      margin-top: 20px; /* Add margin to separate the image from the subtitles */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 11;
+    }
+
+    /* Existing CSS */
 
     /* Responsive CSS */
     @media only screen and (max-width: 768px) {
+    body {
+      width: 80vw;
+    }
 
-			body {
-				padding: 0 5%;
-			}
+    .navbar {
+      padding: 20px;
+    }
 
-			.navbar .logo {
-				font-size: 1.5em;
-			}
+    .top-btn {
+      font-size: .75em;
 
-			.header {
-				padding: 20px;
-				min-height: calc(100vh - 58px); /* Adjust for navbar height */
-			}
+    }
 
-			.header h1 {
-				font-size: 2em;
-			}
+    .header-subtitle {
+      font-size: 2rem;
 
-			.header-container {
-				flex-direction: column;
-				text-align: center;
-			}
+    }
 
-			.header-image {
-				margin-left: 0;
-				margin-top: 20px;
-				max-width: 50%;
-			}
+    .navbar .logo {
+      font-size: 1em;
+    }
 
-			.content {
-				margin: 10px;
-			}
+    .header {
+      width: auto;
+      padding: 20px;
+    }
 
-			.content h2 {
-				font-size: 1.5em;
-			}
+    .header-container {
+      flex-direction: column;
+      text-align: center;
+    }
 
-			.content p {
-				font-size: 1em;
-			}
+    .header-image {
+      margin-left: 0;
+      /* margin-top: 50px; */
+      max-width: 50%;
+    }
 
-			.content-container {
-				flex-direction: column;
-			}
+    .header-subtitle {
+      margin-left: 0;
+    }
 
-			.content-image {
-				margin-right: 0;
-				margin-top: 20px;
-			}
+    .content {
+      margin: 10px;
+    }
 
-			.content-image img {
-				max-width: 100%;
-			}
+    .content h2 {
+      font-size: 1.5em;
+    }
 
-			input[type=email] {
-				width: 100%;
-				margin-bottom: 10px;
-			}
+    .content p {
+      font-size: 1em;
+    }
 
-			ul.benefits li {
-				font-size: 1.2em;
-			}
-		}
+    .content-container {
+      flex-direction: column;
+    }
 
-  </style>
+    .content-image {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+
+    .content-image img {
+      max-width: 100%;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    ul.benefits li {
+      font-size: 1.2em;
+    }
+
+  }
+</style>
 </head>
 <body>
-
-<div class="navbar">
-  <div class="logo">🛍️</div>
-	<div class="top-button-wrapper">  
-		<a class="top-btn" href="https://forms.gle/DUm6C7SAjDBsoZ4w5" target="_blank">Coming Soon</a></div>
-</div>
-
-<div class="header">
-  <div class="header-container">
-		<img class="header-image" src="images/app.png" />
-
-    <div>
-      <h1>Welcome to <span>BODEGA</span> 🛍️</h1>
-      <h2 class="header-subtitle">Everything on sale.</h2>
-			<h2 class="header-subtitle">From all your favorite brands.</h2>
-			<h2 class="header-subtitle">All in one app.</h2>
-			<div class="get-updates">      
-				<a class="btn" href="https://forms.gle/DUm6C7SAjDBsoZ4w5" target="_blank">Get Updates</a></div>
-    	</div>
+  <div class="navbar">
+    <div class="logo">BODEGA</div>
+    <div class="top-button-wrapper">
+      <a class="top-btn" href="https://forms.gle/DUm6C7SAjDBsoZ4w5" target="_blank">GET EARLY ACCESS</a>
+    </div>
   </div>
-</div>
-<div class="footer">
-  <p>&copy; 2023 <span>BODEGA</span>. All rights reserved.</p>
-</div>
 
+  <div class="header">
+    <div class="header-content">
+      <div class="header-subtitles">
+        <h2 class="header-subtitle">EVERYTHING ON SALE.</h2>
+        <h2 class="header-subtitle">FROM ALL YOUR FAVORITE BRANDS.</h2>
+        <h2 class="header-subtitle">ALL IN ONE APP.</h2>
+      </div>
+      <div class="iphone-image-container">
+        <img class="header-image" src="images/app3.png" />
+      </div>
+    </div>
+  </div>
+
+  <video autoplay loop muted class="background-video">
+    <source src="videos/background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="footer">
+    <p>&copy; 2023 BODEGA Technologies Inc.</p>
+    <p><a href="mailto:bodegafounders@gmail.com" target="_blank">CONTACT</a></p>
+  </div>
 </body>
 </html>
