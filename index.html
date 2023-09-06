@@ -6,6 +6,23 @@
 -->
 <html>
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZMNVBHLN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GBZMNVBHLN');
+
+    // Track button clicks
+    function trackButtonClick() {
+      gtag('event', 'click', {
+        'event_category': 'button',
+        'event_label': 'Get Early Access',
+      });
+    }
+  </script>
   <title>BODEGA: Streamline Your Shopping Experience</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -374,7 +391,7 @@
   <div class="navbar">
     <div class="logo">BODEGA</div>
     <div class="top-button-wrapper">
-      <a class="top-btn" href="https://testflight.apple.com/join/YPmx8ZKD" target="_blank">GET EARLY ACCESS</a>
+      <a class="top-btn" href="https://testflight.apple.com/join/YPmx8ZKD" onClick="trackButtonClick()" target="_blank">GET EARLY ACCESS</a>
     </div>
   </div>
 
