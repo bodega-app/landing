@@ -23,6 +23,7 @@
       });
     }
 
+
     function openModal() {
       document.getElementById('emailModal').style.display = 'block';
     }
@@ -338,6 +339,7 @@
       background:white;
       padding:20px;
       width: 350px;
+      height: 650px;
     }
 
     .submit_button {
@@ -486,16 +488,12 @@
   <!-- Email Modal -->
   <div id="emailModal" class="email_modal">
     <div class="email_form_container">
-      <form id="emailForm" class="email_form">
-        <label for="email" class = "email_title">ENTER YOUR EMAIL</label>
-        <input type="email" id="email" name="email" class = "email_input" required>
-        <button type="submit" class="submit_button" onclick="trackButtonClick();">SUBMIT</button>
-      </form>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXyfHT2VrsYnH4rwYBeaC-deVfw0izxVxoZVnJJVY5yDfONA/viewform?embedded=true" width="350" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
   </div>
 
   <div class="footer">
-    <p>&copy; 2023 BODEGA Technologies Inc.</p>
+    <p>&copy; 2023 BODEGA.</p>
     <p><a href="mailto:bodegafounders@gmail.com" target="_blank">CONTACT</a></p>
   </div>
 </body>
