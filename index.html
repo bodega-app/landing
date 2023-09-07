@@ -7,7 +7,7 @@
 <html>
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZMNVBHLN"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZMNVBHLN"></script> 
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -22,6 +22,22 @@
         'event_label': 'Get Early Access',
       });
     }
+
+    function openModal() {
+      document.getElementById('emailModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('emailModal').style.display = 'none';
+    }
+
+      // Close the modal when clicking outside of it
+      window.addEventListener('click', function(event) {
+        if (event.target === document.getElementById('emailModal')) {
+          closeModal();
+        }
+      });
+
   </script>
   <title>BODEGA: Streamline Your Shopping Experience</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -200,7 +216,6 @@
       padding: 10px;
       font-size: 1em;
       border: 1px solid #000000;
-      border-radius: 4px;
       margin-right: 10px;
       outline: none;
       box-sizing: border-box;
@@ -304,6 +319,60 @@
       z-index: 11;
     }
 
+    .email_modal {
+      display:none;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(0,0,0,0.8)
+      ;z-index:20;
+    }
+
+    .email_form_container {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      background:white;
+      padding:20px;
+      width: 350px;
+    }
+
+    .submit_button {
+      color: white;
+      background:black;
+      border: none;
+      height: 40px;
+    }
+
+    .submit_button:hover {
+      color: white;
+      background:black;
+      border: none;
+      height: 40px;
+      cursor: pointer
+    }
+
+
+    .email_form{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .email_input {
+      width: 100% !important;
+      max-width: None !important;
+      margin-bottom: 10px;
+    }
+
+    .email_title {
+      align-self: center;
+      margin-bottom: 10px;
+    }
+
     /* Existing CSS */
 
     /* Responsive CSS */
@@ -391,7 +460,7 @@
   <div class="navbar">
     <div class="logo">BODEGA</div>
     <div class="top-button-wrapper">
-      <a class="top-btn" href="https://testflight.apple.com/join/YPmx8ZKD" onClick="trackButtonClick()" target="_blank">GET EARLY ACCESS</a>
+      <a class="top-btn" href="javascript:void(0);" onClick="openModal(); trackButtonClick()">GET EARLY ACCESS</a>
     </div>
   </div>
 
@@ -413,6 +482,17 @@
     <source src="videos/background.webm" type="video/webm" />
     Your browser does not support the video tag.
   </video>
+
+  <!-- Email Modal -->
+  <div id="emailModal" class="email_modal">
+    <div class="email_form_container">
+      <form id="emailForm" class="email_form">
+        <label for="email" class = "email_title">ENTER YOUR EMAIL</label>
+        <input type="email" id="email" name="email" class = "email_input" required>
+        <button type="submit" class="submit_button" onclick="trackButtonClick();">SUBMIT</button>
+      </form>
+    </div>
+  </div>
 
   <div class="footer">
     <p>&copy; 2023 BODEGA Technologies Inc.</p>
