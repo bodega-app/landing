@@ -5,525 +5,753 @@
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZMNVBHLN"></script> 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GBZMNVBHLN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-GBZMNVBHLN');
+      gtag("config", "G-GBZMNVBHLN");
 
-    // Track button clicks
-    function trackButtonClick() {
-      gtag('event', 'click', {
-        'event_category': 'button',
-        'event_label': 'Get Early Access',
-      });
-    }
+      // Track button clicks
+      function trackButtonClick() {
+        gtag("event", "click", {
+          event_category: "button",
+          event_label: "Get Early Access",
+        });
+      }
 
+      function openModal() {
+        document.getElementById("emailModal").style.display = "block";
+      }
 
-    function openModal() {
-      document.getElementById('emailModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('emailModal').style.display = 'none';
-    }
+      function closeModal() {
+        document.getElementById("emailModal").style.display = "none";
+      }
 
       // Close the modal when clicking outside of it
-      window.addEventListener('click', function(event) {
-        if (event.target === document.getElementById('emailModal')) {
+      window.addEventListener("click", function (event) {
+        if (event.target === document.getElementById("emailModal")) {
           closeModal();
         }
-        if (event.target === document.getElementById('email_form_container')) {
+        if (event.target === document.getElementById("email_form_container")) {
           closeModal();
         }
       });
-
-  </script>
-  <title>BODEGA: Streamline Your Shopping Experience</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #ffffff;
-      /* color: #000000; */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
-      padding: 0 10%;
-      overflow: hidden;
-      position: relative; /* Needed for absolute positioning */
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      /* background: #ffffff; */
-      padding: 30px;
-      box-sizing: border-box;
-      z-index: 10;
-    }
-
-    .navbar .logo {
-      color: white;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .header {
-    text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    gap: 15px;
-    margin-top: 20vh; /* Adjust this value as needed */
-    z-index: 3; /* Ensure header is on top of video */
-  }
-
-    .header-subtitle {
-      font-weight: lighter;
-      font-size: 4.5rem;
-      color: white;
-    }
-
-    .header h1 {
-      font-size: 3em;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    .header h1 span {
-      color: #ff69b4;
-    }
-
-    .header h2 {
-      color: white;
-      margin-bottom: 0.5rem;
-      margin-top: 0rem;
-    }
-
-    .get-updates {
-      margin-top: 1rem;
-    }
-
-    .content h2 span,
-    .content p span,
-    ul.benefits li span {
-      color: #ff69b4;
-    }
-
-    .content {
-      margin: 20px;
-      text-align: justify;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 2; /* Ensure header is on top of video */
-    }
-
-    .content h2 {
-      font-size: 2em;
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .content p {
-      font-size: 1.2em;
-      line-height: 1.6em;
-    }
-
-    .btn {
-      display: inline-block;
-      font-size: 1.2em;
-      padding: 10px 20px;
-      color: #ffffff;
-      background-color: #000000;
-      border: none;
-      border-radius: 25px;
-      transition: all 0.3s ease 0s;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .btn:hover {
-      background-color: #ff69b4;
-      color: #ffffff;
-    }
-
-    .top-btn {
-      display: inline-block;
-      font-size: 1.2em;
-      padding: 10px 20px;
-      color: white;
-      /* background-color: white; */
-      border: white solid 1px;
-      transition: all 0.3s ease 0s;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .top-btn:hover {
-      background-color: white;
-      color: black;
-    }
-
-    .footer {
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom: 10px;
-      position: fixed;
-      box-sizing: border-box;
-      width: 100%;
-      /* background: #ffffff; */
-      font-size: 0.7rem;
-      z-index: 10; /* Ensure footer is on top of video */
-    }
-
-    .background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Cover entire viewport */
-      filter: brightness(50%);
-      z-index: 1; /* Place video behind content */
-    }
-
-    input[type="email"] {
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #000000;
-      margin-right: 10px;
-      outline: none;
-      box-sizing: border-box;
-      width: 50%;
-      max-width: 400px;
-    }
-
-    ul.benefits {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    ul.benefits li {
-      font-size: 1.5em;
-      margin: 20px 0;
-    }
-
-    /* New CSS styles */
-    .header-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      z-index: 9;
-    }
-
-    .header-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .header-image {
-      flex-shrink: 0;
-      margin-top: 50px; /* Adjust the margin as needed */
-      max-height: 70vh; /* Adjust the width as needed */
-    }
-
-    .scroll-arrow {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      cursor: pointer;
-      color: #000000;
-      font-size: 3em;
-      z-index: 3;
-    }
-
-    .content {
-      margin: 20px;
-      text-align: justify;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content-container {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px; /* Adjust the max-width as needed */
-    }
-
-    .content-image {
-      flex-shrink: 0;
-      margin-right: 20px; /* Adjust the margin as needed */
-    }
-
-    .content-image img {
-      max-width: 20vw; /* Adjust the width as needed */
-    }
-
-    .content-text {
-      flex-grow: 1;
-    }
-
-    .footer p {
-      color: white;
-    }
-
-    .footer a {
-      color: white;
-    }
-
-    .footer a:visited {
-      color: white; /* Set the color you want for visited links */
-    }
-
-    .iphone-image-container {
-      margin-top: 20px; /* Add margin to separate the image from the subtitles */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 11;
-    }
-
-    .email_modal {
-      display:none;
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background-color:rgba(0,0,0,0.8)
-      ;z-index:20;
-    }
-
-    .email_form_container {
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      /* background:white; */
-      padding:20px;
-      width: 350px;
-      height: 650px;
-    }
-
-    .submit_button {
-      color: white;
-      background:black;
-      border: none;
-      height: 40px;
-    }
-
-    .submit_button:hover {
-      color: white;
-      background:black;
-      border: none;
-      height: 40px;
-      cursor: pointer
-    }
-
-
-    .email_form{
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .email_input {
-      width: 100% !important;
-      max-width: None !important;
-      margin-bottom: 10px;
-    }
-
-    .email_title {
-      align-self: center;
-      margin-bottom: 10px;
-    }
-
-
-    .closeButton {
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 12px;
-    line-height: 1;
-    color: white;
-  }
-
-    /* Existing CSS */
-
-    /* Responsive CSS */
-    @media only screen and (max-width: 768px) {
-    body {
-      width: 80vw;
-    }
-
-    .navbar {
-      padding: 20px;
-    }
-
-    .top-btn {
-      font-size: .75em;
-
-    }
-
-    .header-subtitle {
-      font-size: 2rem;
-
-    }
-
-    .navbar .logo {
-      font-size: 1em;
-    }
-
-    .header {
-      width: auto;
-      padding: 20px;
-    }
-
-    .header-container {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .header-image {
-      margin-left: 0;
-      /* margin-top: 50px; */
-      max-width: 50%;
-    }
-
-    .header-subtitle {
-      margin-left: 0;
-    }
-
-    .content {
-      margin: 10px;
-    }
-
-    .content h2 {
-      font-size: 1.5em;
-    }
-
-    .content p {
-      font-size: 1em;
-    }
-
-    .content-container {
-      flex-direction: column;
-    }
-
-    .content-image {
-      margin-right: 0;
-      margin-top: 20px;
-    }
-
-    .content-image img {
-      max-width: 100%;
-    }
-
-    input[type="email"] {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    ul.benefits li {
-      font-size: 1.2em;
-    }
-
-    .email_form_container {
-      position:absolute;
-      top:57%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      /* background:white; */
-      padding:20px;
-      width: 350px;
-      height: 650px;
-    }
-
-  }
-</style>
-</head>
-<body>
-  <div class="navbar">
-    <div class="logo">BODEGA</div>
-    <div class="top-button-wrapper">
-      <a class="top-btn" href="javascript:void(0);" onClick="openModal(); trackButtonClick()">GET EARLY ACCESS</a>
+    </script>
+    <title>BODEGA: Streamline Your Shopping Experience</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #000000;
+        /* color: #000000; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+        /* overflow: hidden; */
+        position: relative; /* Needed for absolute positioning */
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* background: #ffffff; */
+        padding: 30px;
+        box-sizing: border-box;
+        z-index: 20;
+      }
+
+      .navbar .logo {
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .header-container {
+        position: relative;
+        overflow: hidden;
+        height: 80vh;
+      }
+
+      .header {
+        text-align: center;
+        /* padding: 30px;  */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1; /* Place the content above the video */
+        padding: 0 10%;
+        min-height: 100vh;
+      }
+
+      .header-subtitles {
+        font-size: 2rem;
+      }
+
+      .header-subtitle {
+        margin-top: 50px; /* Adjust the margin-top value as needed */
+        font-weight: lighter;
+        font-size: 4.5rem;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .header h1 span {
+        color: #ff69b4;
+      }
+
+      .header h2 {
+        color: white;
+        margin-bottom: 0.5rem;
+        margin-top: 0rem;
+      }
+
+      .get-updates {
+        margin-top: 1rem;
+      }
+
+      .content h2 span,
+      .content p span,
+      ul.benefits li span {
+        color: #ff69b4;
+      }
+
+      .content {
+        margin: 20px;
+        text-align: justify;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2; /* Ensure header is on top of video */
+      }
+
+      .content h2 {
+        font-size: 2em;
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .content p {
+        font-size: 1.2em;
+        line-height: 1.6em;
+      }
+
+      .btn {
+        display: inline-block;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        color: #ffffff;
+        background-color: #000000;
+        border: none;
+        border-radius: 25px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .btn:hover {
+        background-color: #ff69b4;
+        color: #ffffff;
+      }
+
+      .top-btn {
+        display: inline-block;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        color: white;
+        /* background-color: white; */
+        border: white solid 1px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .top-btn:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .footer {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+        position: fixed;
+        box-sizing: border-box;
+        width: 100%;
+        /* background: #ffffff; */
+        font-size: 0.7rem;
+        z-index: 10; /* Ensure footer is on top of video */
+      }
+
+      .background-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
+        z-index: -10; /* Move the video behind the content */
+      }
+
+      input[type="email"] {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #000000;
+        margin-right: 10px;
+        outline: none;
+        box-sizing: border-box;
+        width: 50%;
+        max-width: 400px;
+      }
+
+      ul.benefits {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul.benefits li {
+        font-size: 1.5em;
+        margin: 20px 0;
+      }
+
+      /* New CSS styles */
+      .header-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 9;
+      }
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .scroll-arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        color: #000000;
+        font-size: 3em;
+        z-index: 3;
+      }
+
+      .content {
+        margin: 20px;
+        text-align: justify;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .content-container {
+        /* margin-top: 2rem; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        /* max-width: 1200px; */
+      }
+
+      .first-content-text {
+        display: flex;
+        flex-direction: row;
+        gap: 400px;
+        padding-left: 20vh;
+        padding-right: 20vh;
+      }
+
+      .content-text {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 40px;
+        padding-left: 20vh;
+        padding-right: 20vh;
+      }
+
+      .alt-content-text {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        padding-left: 20vh;
+        padding-right: 20vh;
+      }
+
+      .first-content-column {
+        flex: 1;
+        color: white;
+      }
+
+      .content-column {
+        flex: 1;
+        color: white;
+      }
+
+      .content-column h2 {
+        margin-top: 40vh;
+      }
+
+      .content-column p {
+        margin-top: 40vh;
+      }
+      /* Style the new section and button */
+      .bottom-section {
+        background-color: black;
+        border-top: white solid 3px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30vh; /* Adjust the height as needed */
+        /* position: fixed; */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+
+      .bottom-section-btn {
+        display: inline-block;
+        font-size: 1.2em;
+        padding: 10px 20px;
+        color: white;
+        /* background-color: white; */
+        border: white solid 1px;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+      }
+
+      .bottom-section-btn:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .footer p {
+        color: white;
+      }
+
+      .footer a {
+        color: white;
+      }
+
+      .footer a:visited {
+        color: white; /* Set the color you want for visited links */
+      }
+
+      .iphone-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 11;
+        position: sticky; /* Change this line */
+        margin-top: 20vh;
+        top: 60vh; /* Add this line */
+        height: 0;
+      }
+
+      .iphone-image {
+        flex-shrink: 0;
+        margin-top: 40px; /* Adjust the margin as needed */
+        max-height: 70vh; /* Adjust the width as needed */
+      }
+
+      .email_modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 20;
+      }
+
+      .email_form_container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* background:white; */
+        padding: 20px;
+        width: 350px;
+        height: 650px;
+      }
+
+      .submit_button {
+        color: white;
+        background: black;
+        border: none;
+        height: 40px;
+      }
+
+      .submit_button:hover {
+        color: white;
+        background: black;
+        border: none;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .email_form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .email_input {
+        width: 100% !important;
+        max-width: None !important;
+        margin-bottom: 10px;
+      }
+
+      .email_title {
+        align-self: center;
+        margin-bottom: 10px;
+      }
+
+      .closeButton {
+        position: absolute;
+        top: 10px;
+        left: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 12px;
+        line-height: 1;
+        color: white;
+      }
+
+      .section {
+        /* min-height: 100vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white; /* Set text color to white */
+        font-size: 2em; /* Adjust font size as needed */
+        z-index: 10;
+      }
+
+      .first-section-seperator {
+        height: 50vh;
+        background-color: black;
+        z-index: 10;
+      }
+
+      .section-seperator {
+        height: 40vh;
+        background-color: black;
+        z-index: 10;
+      }
+
+      /* Responsive CSS */
+      @media only screen and (max-width: 900px) {
+        .navbar {
+          padding: 20px;
+        }
+
+        .top-btn {
+          font-size: 0.75em;
+        }
+
+        .header-subtitle {
+          font-size: 2rem;
+        }
+
+        .navbar .logo {
+          font-size: 1em;
+        }
+
+        .header-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .section-seperator {
+          height: 20vh;
+        }
+
+        .iphone-image-container {
+          top: 32vh; /* Add this line */
+        }
+
+        .iphone-image {
+          margin-left: 0;
+          /* margin-top: 50px; */
+          max-width: 40%;
+        }
+
+        .header-subtitle {
+          margin-left: 0;
+        }
+
+        .content {
+          margin: 10px;
+        }
+
+        .content h2 {
+          font-size: 1.5em;
+        }
+
+        .content p {
+          font-size: 1em;
+        }
+
+        .content-column h2 {
+          margin-top: 0vh;
+          margin-left: 20vw;
+          margin-right: 20vw;
+          text-align: center;
+        }
+
+        .first-content-text {
+          margin-top: 40px;
+          text-align: center;
+        }
+
+        .content-column p {
+          margin-top: 0vh;
+        }
+
+        .mobile-hidden {
+          display: none;
+        }
+
+        .content-container {
+          margin-top: 20vh;
+        }
+
+        .content-text {
+          flex-direction: column-reverse;
+          align-items: center;
+          padding-left: 0vh;
+          padding-right: 0vh;
+        }
+
+        .alt-content-text {
+          flex-direction: column-reverse;
+          align-items: center;
+          padding-left: 0vh;
+          padding-right: 0vh;
+        }
+        .content-image {
+          margin-right: 0;
+          margin-top: 20px;
+        }
+
+        .content-image img {
+          max-width: 100%;
+        }
+
+        input[type="email"] {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        ul.benefits li {
+          font-size: 1.2em;
+        }
+
+        .email_form_container {
+          position: absolute;
+          top: 57%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          /* background:white; */
+          padding: 20px;
+          width: 350px;
+          height: 650px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">BODEGA</div>
+      <div class="top-button-wrapper">
+        <a
+          class="top-btn"
+          href="javascript:void(0);"
+          onClick="openModal(); trackButtonClick()"
+          >GET EARLY ACCESS</a
+        >
+      </div>
     </div>
-  </div>
 
-  <div class="header">
-    <div class="header-content">
-      <div class="header-subtitles">
-        <h2 class="header-subtitle">EVERYTHING ON SALE.</h2>
-        <h2 class="header-subtitle">FROM ALL YOUR FAVORITE BRANDS.</h2>
-        <h2 class="header-subtitle">ALL IN ONE APP.</h2>
+    <div>
+      <video autoplay loop muted playsinline class="background-video">
+        <source src="videos/background.mp4" type="video/mp4" />
+        <source src="videos/background.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="header-container">
+        <div class="header">
+          <div class="header-content">
+            <div class="header-subtitles">
+              <h2 class="header-subtitle">EVERYTHING ON SALE.</h2>
+              <h2 class="header-subtitle">FROM ALL YOUR FAVORITE BRANDS.</h2>
+              <h2 class="header-subtitle">ALL IN ONE APP.</h2>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="iphone-image-container">
-        <img class="header-image" src="images/app3.png" />
+        <img class="iphone-image" src="images/app3.png" />
+      </div>
+      <div
+        class="first-section-seperator"
+        style="border-top: 3px solid white"
+      ></div>
+    </div>
+    <div class="section" style="background-color: black">
+      <div class="content-container">
+        <div class="first-content-text">
+          <div class="first-content-column">
+            <h2>A CURATED FEED JUST FOR YOU</h2>
+          </div>
+          <div class="first-content-column mobile-hidden">
+            <p style="text-transform: uppercase">
+              Explore a personalized feed tailored to your tastes and
+              preferences.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <video autoplay loop muted playsinline class="background-video">
-    <source src="videos/background.mp4" type="video/mp4" />
-    <source src="videos/background.webm" type="video/webm" />
-    Your browser does not support the video tag.
-  </video>
+    <div class="section-seperator"></div>
+    <div
+      class="section"
+      style="
+        /* background: rgba(0, 0, 0, 0.8);
+        border-top: 3px solid white;
+        border-bottom: 3px solid white; */
+        background: black;
+        padding-bottom: 25vh;
+      "
+    >
+      <div class="content-container">
+        <div class="content-text">
+          <div class="content-column">
+            <h2>COLLECT TO YOUR HEARTS DESIRE</h2>
+          </div>
+          <img class="iphone-image" src="images/app3.png" />
 
-  <!-- Email Modal -->
-  <div id="emailModal" class="email_modal">
-    <div class="email_form_container" onClick>
-      <div class="closeButton" onclick="closeModal()">CLOSE</div> <!-- The new Close Button -->
-
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXyfHT2VrsYnH4rwYBeaC-deVfw0izxVxoZVnJJVY5yDfONA/viewform?embedded=true" scrolling="no" width="350" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          <div class="content-column mobile-hidden">
+            <p style="text-transform: uppercase">
+              Save your favorite items, add them into collections, and watch
+              your digital closet grow.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <p>&copy; 2023 BODEGA</p>
-    <p><a href="mailto:bodegafounders@gmail.com" target="_blank">CONTACT</a></p>
-  </div>
-</body>
+    <div class="section-seperator" style="height: 10vh"></div>
+    <div class="section" style="background-color: black; padding-bottom: 25vh">
+      <div class="content-container">
+        <div class="alt-content-text">
+          <div class="content-column">
+            <h2>GET PAID TO SHOP. ACTUALLY.</h2>
+          </div>
+          <img class="iphone-image" src="images/app3.png" />
+
+          <div class="content-column mobile-hidden">
+            <p style="text-transform: uppercase">
+              Earn points as you shop. More points gets you into higher tiers.
+              Higher tiers means more benefits.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New section with the class "bottom-section" -->
+    <div class="bottom-section">
+      <div class="bottom-section-button">
+        <a
+          href="javascript:void(0);"
+          class="bottom-section-btn"
+          onClick="openModal();"
+        >
+          SIGN UP FOR THE BETA
+        </a>
+      </div>
+    </div>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="email_modal">
+      <div class="email_form_container" onClick>
+        <div class="closeButton" onclick="closeModal()">CLOSE</div>
+        <!-- The new Close Button -->
+
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdXyfHT2VrsYnH4rwYBeaC-deVfw0izxVxoZVnJJVY5yDfONA/viewform?embedded=true"
+          scrolling="no"
+          width="350"
+          height="650"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          >Loading…</iframe
+        >
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2023 BODEGA</p>
+      <p>
+        <a href="mailto:bodegafounders@gmail.com" target="_blank">CONTACT</a>
+      </p>
+    </div>
+  </body>
 </html>
